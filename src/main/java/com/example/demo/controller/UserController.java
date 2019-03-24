@@ -34,7 +34,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/export", method = RequestMethod.POST)
-    public void export(ModelAndView model, HttpServletResponse response) throws IOException, JRException, SQLException {
+    public void export(ModelAndView model, HttpServletResponse response) throws IOException, JRException, SQLException,ClassNotFoundException {
         JasperPrint jasperPrint = null;
 
         response.setContentType("application/x-download");

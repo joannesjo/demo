@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
@@ -27,9 +28,10 @@ public class UserDaoImpl {
     @Autowired
     private ResourceLoader resourceLoader;
 
-    public JasperPrint exportPdfFile() throws SQLException, JRException, IOException {
-        Connection conn = jdbcTemplate.getDataSource().getConnection();
-
+    public JasperPrint exportPdfFile() throws SQLException, JRException, IOException,ClassNotFoundException {
+        //Connection conn = jdbcTemplate.getDataSource().getConnection();
+        Class.forName("org.apache.cassandra.cql.jdbc.CassandraDriver");
+        Connection conn = DriverManager.getConnection("jdbc:cassandra:cassandra/cassandra@localhost:9042/test");
         String path = resourceLoader.getResource("classpath:rpt_users.jrxml").getURI().getPath();
 
         JasperReport jasperReport = JasperCompileManager.compileReport(path);

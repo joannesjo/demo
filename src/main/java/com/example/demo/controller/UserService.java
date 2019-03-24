@@ -16,7 +16,7 @@ public class UserService {
     @Autowired
     private UserDaoImpl userDao;
 
-    public JasperPrint exportPdfFile() throws SQLException, JRException, IOException {
+    public JasperPrint exportPdfFile() throws SQLException, JRException, IOException ,ClassNotFoundException{
         return userDao.exportPdfFile();
     }
 }

@@ -22,15 +22,32 @@
 
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa -->
-		<dependency>
+		<!--<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+-->
+		<!-- https://mvnrepository.com/artifact/org.apache.cassandra/cassandra-all -->
 
-		<!--<dependency>
+
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-cassandra</artifactId>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache-extras.cassandra-jdbc/cassandra-jdbc -->
+		<!--<dependency>
+			<groupId>org.apache-extras.cassandra-jdbc</groupId>
+			<artifactId>cassandra-jdbc</artifactId>
 		</dependency>-->
+
+
+		<!-- https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector -->
+		<!--<dependency>
+			<groupId>com.datastax.spark</groupId>
+			<artifactId>spark-cassandra-connector_2.11</artifactId>
+		</dependency>-->
+
 		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies -->
 		<!--<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -89,11 +106,11 @@
 			<artifactId>tomcat-embed-jasper</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
+		<!--<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.46</version>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>org.codehaus.groovy</groupId>
 			<artifactId>groovy-all</artifactId>
