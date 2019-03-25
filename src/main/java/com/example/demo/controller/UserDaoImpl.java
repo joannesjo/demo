@@ -39,7 +39,7 @@ public class UserDaoImpl {
                 .withoutJMXReporting()
                 .build();*/
         //Class.forName("org.apache.cassandra.cql.jdbc.CassandraDriver");
-        Class.forName("com.github.adejanovski.cassandra.jdbc.CassandraDriver");
+       // Class.forName("com.github.adejanovski.cassandra.jdbc.CassandraDriver");
 
         Connection conn = DriverManager.getConnection("jdbc:cassandra://localhost:9042/test");
         String path = resourceLoader.getResource("classpath:rpt_users.jrxml").getURI().getPath();
