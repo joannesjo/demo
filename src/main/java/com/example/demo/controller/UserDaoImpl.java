@@ -7,6 +7,9 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.datastax.driver.core.Cluster;
+import com.datastax.driver.core.ProtocolVersion;
+import com.yammer.metrics.reporting.JmxReporter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.io.ResourceLoader;
@@ -30,8 +33,15 @@ public class UserDaoImpl {
 
     public JasperPrint exportPdfFile() throws SQLException, JRException, IOException,ClassNotFoundException {
         //Connection conn = jdbcTemplate.getDataSource().getConnection();
-        Class.forName("org.apache.cassandra.cql.jdbc.CassandraDriver");
-        Connection conn = DriverManager.getConnection("jdbc:cassandra:cassandra/cassandra@localhost:9042/test");
+        //BasicDataSource dataSource = new BasicDataSource();
+
+       /* Cluster cluster = Cluster.builder()
+                .withoutJMXReporting()
+                .build();*/
+        //Class.forName("org.apache.cassandra.cql.jdbc.CassandraDriver");
+        Class.forName("com.github.adejanovski.cassandra.jdbc.CassandraDriver");
+
+        Connection conn = DriverManager.getConnection("jdbc:cassandra://localhost:9042/test");
         String path = resourceLoader.getResource("classpath:rpt_users.jrxml").getURI().getPath();
 
         JasperReport jasperReport = JasperCompileManager.compileReport(path);

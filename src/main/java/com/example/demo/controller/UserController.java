@@ -4,10 +4,13 @@ package com.example.demo.controller;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.configurationprocessor.json.JSONObject;
+import org.springframework.data.cassandra.core.CassandraTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,6 +27,7 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
 
     @RequestMapping(value = { "/", "" }, method = RequestMethod.GET)
     public ModelAndView home() {
@@ -44,4 +48,6 @@ public class UserController {
         jasperPrint = userService.exportPdfFile();
         JasperExportManager.exportReportToPdfStream(jasperPrint, out);
     }
+
+
 }
